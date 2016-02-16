@@ -1,4 +1,4 @@
-version 12.0
+
 dis "$root"
 assert "$root" !="" //assert root capture worked for user
 global data "$root/1data/"
