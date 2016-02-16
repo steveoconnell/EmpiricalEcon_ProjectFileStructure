@@ -1,0 +1,106 @@
+\documentclass{beamer}
+\usepackage{etex}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{cutwin}
+\usepackage{lipsum}
+\usepackage{threeparttable}
+\usepackage{sansmathaccent}
+\pdfmapfile{+sansmathaccent.map}
+\usenavigationsymbolstemplate{}
+\usepackage{adjustbox,lipsum}
+\usepackage{threeparttable}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tcolorbox}
+\usepackage{smartdiagram}
+\usepackage[absolute,overlay]{textpos}
+
+
+
+
+\graphicspath{{../../4work/}}
+
+
+
+\mode<presentation>{
+\usetheme{CambridgeUS}
+  \setbeamercovered{dynamic=100}
+  \setbeamertemplate{footline}[frame number]
+}
+
+
+
+\title{Title}
+\author{Author\inst{a}}
+
+\date{{\small Place \\ Date}}
+
+\institute
+{
+  \inst{a} Affiliation
+}
+
+
+
+
+\begin{document}
+
+\begin{frame}[noframenumbering,plain]
+  \titlepage
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overview}
+
+\frame{
+\frametitle{Motivation}
+
+	
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Question}
+
+\textbf{This paper:} 
+}
+
+%%%%%%%%%%%%%
+\frame{
+\frametitle{Findings}
+
+}
+
+
+%%%%%%%%%linked slides
+
+\frame[label = ORIGINALSLIDE]{
+\frametitle{Title}
+Button \hyperlink{SLIDELABEL<1>}{\beamergotobutton{View}}
+
+}
+
+
+\frame[noframenumbering, plain, label = SLIDELABEL]{
+\frametitle{Title}
+
+\vspace*{-.5cm}\hspace*{10cm}
+\hyperlink{ORIGINALSLIDE<1>}{\beamergotobutton{Return}}
+}
+
+
+%%%%%%%%%%%%%
+
+
+\end{document}
+

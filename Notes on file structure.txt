@@ -1,0 +1,155 @@
+**********************************************************
+This file should be ADJUSTED to the liking of project team, 
+and then ALL MEMBERS OF THE PROJECT TEAM SHOULD READ & AGREE TO THE 
+STRUCTURE AND RULES HEREIN. After consensus, delete this header.
+**********************************************************
+
+
+**********************************************************
+***	Notes and instructions on basic file structure
+***	[[ORGANIZATION OR PROJECT]]
+***	Shared folder ...\\Dropbox\[FOLDER NAME]\
+***	File created: DATE
+***	by:
+***	shared with:
+***	Folder [DOES]/[DOES NOT] contain sensitive or restricted-access data
+**********************************************************
+This note provides guidance on use and navigation of the file structure of the
+shared folder "[FOLDER NAME]" containing raw data, analysis programs,
+ analysis workbooks, replication datasets, reference documentation and drafts. 
+**********************************************************
+The folder is divided into nine subfolders which contain the following:
+
+
+>>> 1data (Contains ONLY and ALL raw data): 
+Contains all raw datasets categorized by source in subfolders. Documentation directly related
+ to the data will be kept in separate subfolders labeled "documentation" within each source's 
+folder, or, if documentation is light, in a "Notes" or "Source" text file next to the data. 
+NO RAW DATA FILE SHOULD BE WITHOUT DOCUMENTATION AS TO SOURCE.
+
+THIS IS SUPER IMPORTANT: Folder 1 may not contain data which has been altered in any 
+manner from the way it was received or downloaded for the original source (i.e., if you open up 
+an excel workbook you just downloaded, make some new columns with calculations, and save over 
+the original--NO NO NO YOU CAN'T DO THIS). If doing such is absolutely necessary, a notes files
+ must be kept next to the original detailing how manual alterations were made, and the original 
+ should not be saved over.SOMETIMES you need to make original files read-only or protected so 
+ that collaborators who don't pay attention to rules don't do something dumb and irreversible.
+
+
+>>> 2progs (ALL Stata do-files are saved in this folder, without exception):
+Contains all programs to clean and/or process data in preparation for analysis, and programs
+to process and analyze data. In general, it is useful to organize program names to be sortable
+such that there is an obvious sequential order which respects dependencies.
+
+
+>>> 3analysis (Contains ONLY MS Excel workbooks):
+Contains MS Excel workbooks which compile and format specific analysis used in draft/manuscript. 
+If analysis figures are output to TeX or pictures, the raw output files do not go here but just 
+get incorporated inline into the manuscript. 
+-Only most recent versions of analysis programs or workbooks are kept in the main folders; older 
+versions are filed in each subfolder's "old" file (and not deleted).
+
+
+>>> 4work:
+Contains raw output and temp files from programs (.csv files, picture files, TeX tables, etc.)
+ or other miscellaneous. Does not contain any long-term useable files. Does NOT contain files 
+ which are used directly for analysis.
+
+
+>>> 5prepdata:
+Contains prepared (clean) datasets used for analysis.
+
+
+>>> 6docs:
+Contains four types of documents---"Admin" (project adminstrative docs), "Notes and Emails" 
+(including important correspondence with coauthors or colleagues, meeting notes, etc.), "Drafts" 
+(anything written by project team) and "Reference" (literature PDFs usually)--stored in separate 
+subfolders.
+
+
+>>> 7tex:
+Contains TeX code, typeset PDF, and picture files used in compilation of TeX documents.
+Only used if final product is converted to/delivered in TeX format. This folder has some overlap
+ with .../6docs/drafts/ folder in that it will contain rendered draft paper if using TeX.
+
+
+>>> 8maps
+Contains full stack of map-related files (workspaces, join files, picture files, etc.) 
+related to map exhibits used in project.
+
+
+>>> 9xfer:
+-This is for quick transfer across users. Files placed here will not be retained 
+but will either be deleted or moved to appropriate folder upon review.
+-Usually this folder is used for collaborators who don't care / don't follow folder structure 
+rules and want to give you a file.
+
+
+
+*****************************
+*****SUGGESTED GUIDELINES/DEFAULT OPERATING PROCEDURES
+*****************************
+*****PROJECTS
+Projects are self-contained. Never copy prepared datasets from another (old) project into 
+a new project. All files should have programs to be prepared independently of old or other projects.
+
+
+*****PROGRAMMING: OVERALL
+1) Err on the side of clarity and simplicity. Err on the side of too many comments and
+ annotations, rather than too few.
+2) Write explanatory comments for any code segment whose purpose is not immediately obvious to
+  the moderately-skilled programmer.
+3) Always ask: have I given enough information for a moderately-skilled programmer to understand
+ what I am doing here? If the answer is 'no' or 'I don't know', give direction. Most likely doing
+ this will help you more than anyone else. Don't be excessive.
+
+
+*****STRUCTURING PROGRAMS
+Programs should be named with descriptive action verbs (read, clean, merge, etc.) and each program
+ should stick to doing one step of the overall process; i.e., the same program should not do the
+ data read-in, cleaning, summary stats and regressions. The same program shouldn't even do both
+ summary stats and regressions. Simplicity is best, and there is a good middle ground between
+  too few programs and too many.
+
+
+******INTERMEDIATE DATASETS
+During the development phase, intermediate datasets should be left around in order to backtrace
+ steps. When preparing replication backup, programs should include "erase" statements for any
+ large files that are not going to be used again. Datasets used directly for analysis should of
+ course be preserved.
+
+
+*****BASIC MANUAL VERSIONING/VERSION CONTROL
+Programs, analysis workbooks or drafts which have been updated or revised should NEVER be deleted
+ or saved over/overwritten. 
+
+THAT IS, updated analysis or drafts will always be "Saved As" rather than "Saved" over 
+for any given day in which changes were made. Files which need versioning 
+are to be suffixed following _[date][a,b,c].[extension].
+
+Outdated files will always be filed in an appropriate "old" folder housed in the same 
+location as the current version.
+
+
+*****MERGES IN STATA
+-merges should always use the new Stata merge syntax
+-m:m merges should never be used
+-merges (and/or the files they depend on) should make use of the new options assert(), keep(), 
+nogen, and if necessary for simplicity/to keep data size down, keepusing()
+-assert() option should be structured to take <=2 arguments & used in tandem with keep() for
+ inline data validation
+-nogen should be used unless the merge result needs to be kept in memory AFTER inline validation
+
+
+*****OTHER RULES
+When returning to programs after some time has passed since active development, 
+flag new recent changes with inline commenting to more easily identify sources of recent changes 
+if later required. These comments can be deleted later when preparing replication backup.
+
+Most of this stuff can only realistically be implemented/ensured toward the very end of a project
+
+-Be careful of (avoid!!) circular dependencies in programs' use of datasets; make sure programs are sequentially ordered according to dependencies within and across threads
+
+-Do not change datasets (i.e. create new variables and then resave) in scrap programs or programs outside of main threads, or in the command line
+
+-Increase efficiency of merges and loads--merge or load datasets as few times as possible as this is a time killer for datasets pushing RAM limit
