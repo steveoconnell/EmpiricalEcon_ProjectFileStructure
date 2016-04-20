@@ -20,7 +20,6 @@ shared folder "[FOLDER NAME]" containing raw data, analysis programs,
 **********************************************************
 The folder is divided into nine subfolders which contain the following:
 
-
 >>> 1data (Contains ONLY and ALL raw data): 
 Contains all raw datasets categorized by source in subfolders. Documentation directly related
  to the data will be kept in separate subfolders labeled "documentation" within each source's 
@@ -32,7 +31,7 @@ manner from the way it was received or downloaded for the original source (i.e.,
 an excel workbook you just downloaded, make some new columns with calculations, and save over 
 the original--NO NO NO YOU CAN'T DO THIS). If doing such is absolutely necessary, a notes files
  must be kept next to the original detailing how manual alterations were made, and the original 
- should not be saved over.SOMETIMES you need to make original files read-only or protected so 
+ should not be saved over. SOMETIMES you need to make original files read-only or protected so 
  that collaborators who don't pay attention to rules don't do something dumb and irreversible.
 
 
@@ -42,13 +41,11 @@ to process and analyze data. In general, it is useful to organize program names 
 such that there is an obvious sequential order which respects dependencies.
 
 
->>> 3analysis (Contains ONLY MS Excel workbooks):
-Contains MS Excel workbooks which compile and format specific analysis used in draft/manuscript. 
-If analysis figures are output to TeX or pictures, the raw output files do not go here but just 
-get incorporated inline into the manuscript. 
--Only most recent versions of analysis programs or workbooks are kept in the main folders; older 
-versions are filed in each subfolder's "old" file (and not deleted).
-
+>>> 3analysis 
+Contains table/figure output in format prior to compiling into manuscript. This will usually be either:
+-regression output in LaTeX format that will be incorporated by \input{} \import{}
+-figures that will be incorporated via \includegraphics{}
+-other last-stage preparation of analytical output (formatted tables/figures in excel, etc.)
 
 >>> 4work:
 Contains raw output and temp files from programs (.csv files, picture files, TeX tables, etc.)
@@ -74,7 +71,7 @@ Only used if final product is converted to/delivered in TeX format. This folder 
 
 
 >>> 8maps
-Contains full stack of map-related files (workspaces, join files, picture files, etc.) 
+Contains any map-related files (workspaces, join files, picture files, etc.) 
 related to map exhibits used in project.
 
 
@@ -95,14 +92,12 @@ a new project. All files should have programs to be prepared independently of ol
 
 
 *****PROGRAMMING: OVERALL
-1) Err on the side of clarity and simplicity. Err on the side of too many comments and
- annotations, rather than too few.
-2) Write explanatory comments for any code segment whose purpose is not immediately obvious to
-  the moderately-skilled programmer.
-3) Always ask: have I given enough information for a moderately-skilled programmer to understand
- what I am doing here? If the answer is 'no' or 'I don't know', give direction. Most likely doing
- this will help you more than anyone else. Don't be excessive.
+1) Datasets and variable names should be long and descriptive, so as to improve readability of code. 
+Variable names should never be left in an indexed style that comes with many datasets:
+(i.e., var563, val6, hh, person) — things like this should be changed in one of the first steps of the
+data preparation. Correlate: variable labels should not be relied upon. change variable names too.
 
+2) Files or folders should never have spaces in them
 
 *****STRUCTURING PROGRAMS
 Programs should be named with descriptive action verbs (read, clean, merge, etc.) and each program
@@ -119,15 +114,12 @@ During the development phase, intermediate datasets should be left around in ord
  course be preserved.
 
 
-*****BASIC MANUAL VERSIONING/VERSION CONTROL
-Programs, analysis workbooks or drafts which have been updated or revised should NEVER be deleted
- or saved over/overwritten. 
-
-THAT IS, updated analysis or drafts will always be "Saved As" rather than "Saved" over 
-for any given day in which changes were made. Files which need versioning 
+*****BASIC MANUAL VERSIONING/VERSION CONTROl
+Updated analysis programs should occasionally be "Saved As" rather than "Saved" over. 
+Files which need versioning 
 are to be suffixed following _[date][a,b,c].[extension].
 
-Outdated files will always be filed in an appropriate "old" folder housed in the same 
+Outdated files can be filed in an appropriate "old" folder housed in the same 
 location as the current version.
 
 
