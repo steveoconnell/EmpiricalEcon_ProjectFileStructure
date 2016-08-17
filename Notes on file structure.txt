@@ -97,7 +97,9 @@ Variable names should never be left in an indexed style that comes with many dat
 (i.e., var563, val6, hh, person) — things like this should be changed in one of the first steps of the
 data preparation. Correlate: variable labels should not be relied upon. change variable names too.
 
+New guidelines 2016:
 2) Files or folders should never have spaces in them
+3) Files, folders, variable names etc. should start to move from lowercase underscore_word_separation to CamelCase
 
 *****STRUCTURING PROGRAMS
 Programs should be named with descriptive action verbs (read, clean, merge, etc.) and each program
