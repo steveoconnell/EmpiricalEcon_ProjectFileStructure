@@ -16,8 +16,8 @@ foreach i in 1LayerFiles 2JoinTables 3Workspaces {
 mkdir "$NewProjectFolderPath/8maps/`i'/"
 }
 //now place docs
-foreach file in "00_Code_header.do" "00_set_paths.do" {
-copy "https://raw.githubusercontent.com/steveoconnell/EmpiricalEcon_ProjectFileStructure/master/2progs/`file'" "$NewProjectFolderPath/2progs/`file'"
+foreach file in 00_Code_header.do 00_set_paths.do {
+*copy "https://raw.githubusercontent.com/steveoconnell/EmpiricalEcon_ProjectFileStructure/master/2progs/`file'" "$NewProjectFolderPath/2progs/`file'"
 }
 
 
