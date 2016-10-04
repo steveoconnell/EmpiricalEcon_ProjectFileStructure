@@ -16,7 +16,12 @@ foreach i in 1LayerFiles 2JoinTables 3Workspaces {
 mkdir "$NewProjectFolderPath/8maps/`i'/"
 }
 //now place docs
-foreach file in _manuscript_template.tex appendix.tex biblio.bib body.tex {
+foreach file in "00_Code_header.do" "00_set_paths.do" {
+copy "https://raw.githubusercontent.com/steveoconnell/EmpiricalEcon_ProjectFileStructure/master/2progs/`file'" "$NewProjectFolderPath/2progs/`file'"
+}
+
+
+foreach file in _manuscript_template.tex appendix.tex biblio.bib body.tex _scratch_notes.tex {
 copy "https://raw.githubusercontent.com/steveoconnell/EmpiricalEcon_ProjectFileStructure/master/7tex/manuscript/`file'" "$NewProjectFolderPath/7tex/manuscript/`file'"
 }
 foreach file in _slides_template.tex {

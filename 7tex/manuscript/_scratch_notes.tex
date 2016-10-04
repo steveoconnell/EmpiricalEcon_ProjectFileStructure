@@ -1,0 +1,60 @@
+\documentclass[12pt,letterpaper,oneside]{article}
+%\documentclass[dvips]{article}
+\usepackage{graphicx}
+%\usepackage{fullpage}
+\usepackage{pdfpages}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{color}
+\usepackage{setspace} %for setting spacing
+\linespread{1.5} %spacing
+\usepackage{lscape} %for allowing landscape layout in sections
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+\usepackage{natbib}
+\citestyle{aer}
+\usepackage{enumitem}
+\usepackage{import} % -import- facilitates relative file references within each file
+\usepackage{threeparttable} %allows toprule bottomrule and tablenotes
+\usepackage{makecell} %for breaks within table cells
+\usepackage{caption} %for turning off default figure caption prefixes
+%\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+\graphicspath{{images/}}  %set this for default directory for graphics importing
+
+
+\begin{document}
+
+\title{Title}
+\author{Stephen D. O'Connell}
+
+  
+\maketitle 
+\begin{abstract}
+\singlespace \noindent Abstract
+\end{abstract}
+
+\textbf{Keywords:} 
+Keywords.
+
+\singlespace 
+\textbf{Acknowledgments:} Acknowledgments
+
+\newpage
+\doublespace
+
+
+\input{body.tex}
+\clearpage
+
+
+\newpage
+\bibliography{biblio}
+\bibliographystyle{ecta}
+
+\import{tables/}{tables.tex}
+
+\end{document}
+
+
